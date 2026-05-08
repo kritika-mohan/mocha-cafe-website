@@ -1,6 +1,12 @@
 // Drinks: Locally generated AI images (public/images/)
 // All other categories: Verified working Unsplash CDN URLs matched by dish name
 
+export const storeSettings = {
+  openingTime: '08:00', // 8 AM
+  closingTime: '22:00', // 10 PM
+  timeZone: 'Asia/Kolkata'
+};
+
 export const menuData = {
   drinks: [
     {

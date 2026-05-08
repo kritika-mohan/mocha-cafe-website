@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { ShoppingBag } from 'lucide-react';
 import { AuthContext } from '../App';
 import { CartContext } from '../context/CartContext';
+import StoreStatus from './StoreStatus';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -21,7 +22,10 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <Link to="/" className="navbar-brand">Mocha·Café</Link>
+        <div className="navbar-brand-group">
+          <Link to="/" className="navbar-brand">Mocha·Café</Link>
+          <StoreStatus />
+        </div>
         <div className="navbar-links">
           {navLinks.map((link) => (
             <Link 

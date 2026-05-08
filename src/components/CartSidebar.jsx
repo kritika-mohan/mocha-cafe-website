@@ -1,6 +1,8 @@
-import { useContext } from 'react';
-import { ShoppingBag, X, Plus, Minus } from 'lucide-react';
+import { useContext, useState } from 'react';
+import { ShoppingBag, X, Plus, Minus, CheckCircle } from 'lucide-react';
 import { CartContext } from '../context/CartContext';
+import { isStoreOpen } from '../utils/timeUtils';
+import OrderTracking from './OrderTracking';
 import './CartSidebar.css';
 
 const CartSidebar = () => {
@@ -9,8 +11,39 @@ const CartSidebar = () => {
     isCartOpen, 
     setIsCartOpen, 
     updateQuantity, 
-    getCartTotal 
+    getCartTotal,
+    clearCart
   } = useContext(CartContext);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isOrderSuccess, setIsOrderSuccess] = useState(false);
+  const [address, setAddress] = useState('');
+
+  const handleCheckout = async () => {
+    if (!address.trim()) {
+      alert('Please enter a delivery address');
+      return;
+    }
+    setIsSubmitting(true);
+    // Simulate API call to "Time Backend"
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    
+    console.log('Order submitted to backend:', {
+      items: cartItems,
+      total: getCartTotal(),
+      timestamp: new Date().toISOString()
+    });
+
+    setIsSubmitting(false);
+    setIsOrderSuccess(true);
+    
+    // Keep success state open for tracking demo
+    setTimeout(() => {
+      clearCart();
+      setIsOrderSuccess(false);
+      setIsCartOpen(false);
+      setAddress(''); // Reset address
+    }, 25000); // 25 seconds to see tracking progress
+  };
 
   if (!isCartOpen) return null;
 
@@ -58,6 +91,30 @@ const CartSidebar = () => {
               ))}
             </div>
           )}
+
+          {cartItems.length > 0 && !isOrderSuccess && (
+            <div className="cart-delivery-section">
+              <h3>Delivery Address</h3>
+              <textarea 
+                placeholder="Enter your full address (Building, Street, Landmark)..."
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+                rows={3}
+              />
+            </div>
+          )}
+
+          {isOrderSuccess && (
+            <div className="order-success-view">
+              <div className="success-banner">
+                <CheckCircle size={32} color="#2e7d32" />
+                <h2>Order Placed Successfully!</h2>
+                <p>Your delicious meal is on its way to:</p>
+                <div className="address-display">{address}</div>
+              </div>
+              <OrderTracking />
+            </div>
+          )}
         </div>
 
         {cartItems.length > 0 && (
@@ -69,8 +126,20 @@ const CartSidebar = () => {
               </div>
               <p className="cart-taxes">Taxes and delivery calculated at checkout</p>
             </div>
-            <button className="checkout-btn">
-              Proceed to Checkout • ₹{getCartTotal()}
+            <button 
+              className={`checkout-btn ${isSubmitting ? 'loading' : ''} ${isOrderSuccess ? 'success' : ''} ${!isStoreOpen() ? 'disabled' : ''}`}
+              onClick={handleCheckout}
+              disabled={isSubmitting || isOrderSuccess || !isStoreOpen()}
+            >
+              {isSubmitting ? (
+                'Processing Order...'
+              ) : isOrderSuccess ? (
+                <span className="flex-center gap-2"><CheckCircle size={18} /> Order Placed!</span>
+              ) : !isStoreOpen() ? (
+                'Closed - Opens at 8 AM'
+              ) : (
+                `Proceed to Checkout • ₹${getCartTotal()}`
+              )}
             </button>
           </div>
         )}

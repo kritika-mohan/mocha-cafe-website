@@ -19,6 +19,12 @@
   padding: 0 2rem;
 }
 
+.navbar-brand-group {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
 .navbar-brand {
   font-family: var(--font-serif);
   color: var(--color-surface);

@@ -60,6 +60,11 @@ export const CartProvider = ({ children }) => {
     return cartItems.reduce((total, item) => total + item.quantity, 0);
   };
 
+  const clearCart = () => {
+    setCartItems([]);
+    localStorage.removeItem('mocha_cart');
+  };
+
   return (
     <CartContext.Provider value={{
       cartItems,
@@ -70,7 +75,8 @@ export const CartProvider = ({ children }) => {
       toggleCart,
       setIsCartOpen,
       getCartTotal,
-      getCartCount
+      getCartCount,
+      clearCart
     }}>
       {children}
     </CartContext.Provider>
