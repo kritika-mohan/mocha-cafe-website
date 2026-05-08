@@ -52,7 +52,7 @@ export const menuData = {
     {
       name: 'Rose Cardamom Chai',
       desc: 'Spiced chai, rose petals, green cardamom',
-      price: '₹190',
+      price: '₹120',
       image: '/images/rose_chai.png',
       tag: 'House Blend'
     },
@@ -80,8 +80,8 @@ export const menuData = {
     {
       name: 'Golden Turmeric Milk',
       desc: 'Haldi milk, ginger, cinnamon, honey',
-      price: '₹170',
-      image: 'https://images.unsplash.com/photo-1615485500704-8e990f9900f7?w=400&h=300&fit=crop&auto=format',
+      price: '₹110',
+      image: '/images/golden_turmeric_milk.png',
       tag: 'Wellness'
     }
   ],
@@ -90,7 +90,7 @@ export const menuData = {
       name: 'Crispy Corn Chaat',
       desc: 'Fried corn, spices, lime, herbs',
       price: '₹220',
-      image: 'https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=400&h=300&fit=crop&auto=format',
+      image: '/images/crispy_corn_chaat.png',
       tag: 'Bestseller'
     },
     {
@@ -124,7 +124,7 @@ export const menuData = {
       name: 'Fish Fingers',
       desc: 'Beer-battered, tartar sauce, lemon',
       price: '₹360',
-      image: 'https://images.unsplash.com/photo-1604909052743-94e838986d24?w=400&h=300&fit=crop&auto=format'
+      image: '/images/fish_fingers.png'
     },
     {
       name: 'Onion Rings Tower',
@@ -150,7 +150,7 @@ export const menuData = {
       name: 'Dahi Ke Sholay',
       desc: 'Crispy bread rolls, spiced yoghurt, chutney',
       price: '₹260',
-      image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&h=300&fit=crop&auto=format',
+      image: '/images/dahi_ke_sholay.png',
       tag: 'Desi Fav'
     },
     {
@@ -164,7 +164,7 @@ export const menuData = {
       name: 'Veg Spring Rolls',
       desc: 'Cabbage, carrot, glass noodles, hoisin',
       price: '₹230',
-      image: 'https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&h=300&fit=crop&auto=format',
+      image: '/images/veg_spring_rolls.png',
       tag: 'Vegan'
     }
   ],
@@ -200,7 +200,7 @@ export const menuData = {
       name: 'Dal Makhani',
       desc: 'Black lentils overnight, butter, cream, rice',
       price: '₹320',
-      image: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=300&fit=crop&auto=format',
+      image: '/images/dal_makhani.png',
       tag: 'Classic'
     },
     {
@@ -220,7 +220,7 @@ export const menuData = {
     {
       name: 'BBQ Mushroom Burger',
       desc: 'Portobello, smoked cheddar, brioche',
-      price: '₹370',
+      price: '₹290',
       image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=300&fit=crop&auto=format',
       tag: 'Vegetarian'
     },
@@ -235,14 +235,14 @@ export const menuData = {
       name: 'Thai Green Curry',
       desc: 'Coconut, tofu, basil, jasmine rice',
       price: '₹390',
-      image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop&auto=format',
+      image: '/images/thai_green_curry.png',
       tag: 'Vegan'
     },
     {
       name: 'Rajma Chawal',
       desc: 'Creamy red kidney bean curry, basmati, achaar',
       price: '₹300',
-      image: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&h=300&fit=crop&auto=format',
+      image: '/images/rajma_chawal.png',
       tag: 'Comfort'
     },
     {
@@ -255,64 +255,64 @@ export const menuData = {
       name: 'Butter Naan',
       desc: 'Soft, leavened bread brushed with melted butter',
       price: '₹40',
-      image: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400&h=300&fit=crop&auto=format',
+      image: '/images/butter_naan.png',
       tag: 'Classic'
     },
     {
       name: 'Simple Plain Naan',
       desc: 'Traditional oven-baked flatbread',
       price: '₹30',
-      image: 'https://images.unsplash.com/photo-1593001874117-c99c800e3eb7?w=400&h=300&fit=crop&auto=format'
+      image: '/images/plain_naan.png'
     },
     {
       name: 'Roti (Phulka)',
       desc: 'Soft, whole wheat flatbread puffed on open flame',
       price: '₹15',
-      image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=300&fit=crop&auto=format'
+      image: '/images/roti_phulka.png'
     },
     {
       name: 'Tawa Roti',
       desc: 'Whole wheat bread cooked on a traditional griddle',
       price: '₹20',
-      image: 'https://images.unsplash.com/photo-1505253149613-112d21d9f6a9?w=400&h=300&fit=crop&auto=format'
+      image: '/images/tawa_roti.png'
     },
     {
       name: 'Butter Tandoori Roti',
       desc: 'Crispy whole wheat bread from the clay oven with butter',
       price: '₹35',
-      image: 'https://images.unsplash.com/photo-1596797038558-9da421b674df?w=400&h=300&fit=crop&auto=format'
+      image: '/images/tandoori_roti.png'
     },
     {
       name: 'Garlic Naan',
       desc: 'Naan topped with minced garlic and fresh herbs',
       price: '₹60',
-      image: 'https://images.unsplash.com/photo-1626074353765-517a681e40be?w=400&h=300&fit=crop&auto=format',
+      image: '/images/garlic_naan.png',
       tag: 'Popular'
     },
     {
       name: 'Missi Roti',
       desc: 'Flavorful gram flour bread with spices and herbs',
       price: '₹50',
-      image: 'https://images.unsplash.com/photo-1610192244261-3f33de3f55e4?w=400&h=300&fit=crop&auto=format'
+      image: '/images/missi_roti.png'
     },
     {
       name: 'Lacha Paratha',
       desc: 'Multi-layered crispy whole wheat flatbread',
       price: '₹55',
-      image: 'https://images.unsplash.com/photo-1626776876729-bab4369a5a5a?w=400&h=300&fit=crop&auto=format'
+      image: '/images/lacha_paratha.png'
     },
     {
       name: 'Aloo Paratha',
       desc: 'Whole wheat bread stuffed with spiced mashed potatoes',
       price: '₹80',
-      image: 'https://images.unsplash.com/photo-1605331551375-7b5665324905?w=400&h=300&fit=crop&auto=format',
+      image: '/images/aloo_paratha.png',
       tag: 'Indulgent'
     },
     {
       name: 'Rumali Roti',
       desc: 'Extremely thin and soft "handkerchief" bread',
       price: '₹45',
-      image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=400&h=300&fit=crop&auto=format'
+      image: '/images/rumali_roti.png'
     }
   ],
   desserts: [
@@ -341,7 +341,7 @@ export const menuData = {
       name: 'Mango Panna Cotta',
       desc: 'Vanilla panna cotta, Alphonso coulis',
       price: '₹270',
-      image: 'https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400&h=300&fit=crop&auto=format',
+      image: '/images/mango_panna_cotta.png',
       tag: 'Seasonal'
     },
     {
@@ -354,7 +354,7 @@ export const menuData = {
       name: 'Kulfi Falooda',
       desc: 'Pistachio kulfi, falooda sev, rose syrup',
       price: '₹240',
-      image: 'https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=400&h=300&fit=crop&auto=format',
+      image: '/images/kulfi_falooda.png',
       tag: 'Desi Classic'
     },
     {
@@ -374,7 +374,7 @@ export const menuData = {
       name: 'Rasgulla Trifle',
       desc: 'Spongecake, chilled rasgulla, cardamom cream',
       price: '₹250',
-      image: 'https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?w=400&h=300&fit=crop&auto=format',
+      image: '/images/rasgulla_trifle.png',
       tag: "Chef's Pick"
     },
     {
@@ -409,7 +409,7 @@ export const menuData = {
       name: 'Maggi Cheese Volcano',
       desc: 'Maggi with melted cheddar mountain, jalapeños, butter, fried egg',
       price: '₹180',
-      image: 'https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=400&h=300&fit=crop&auto=format',
+      image: '/images/maggi_cheese_volcano.png',
       tag: 'Bestseller'
     }
   ]
