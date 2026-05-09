@@ -3,6 +3,7 @@ import { ShoppingBag, X, Plus, Minus, CheckCircle } from 'lucide-react';
 import { CartContext } from '../context/CartContext';
 import { isStoreOpen } from '../utils/timeUtils';
 import OrderTracking from './OrderTracking';
+import { supabase } from '../lib/supabaseClient';
 import './CartSidebar.css';
 
 const CartSidebar = () => {
@@ -24,25 +25,54 @@ const CartSidebar = () => {
       return;
     }
     setIsSubmitting(true);
-    // Simulate API call to "Time Backend"
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    console.log('Order submitted to backend:', {
-      items: cartItems,
-      total: getCartTotal(),
-      timestamp: new Date().toISOString()
-    });
 
-    setIsSubmitting(false);
-    setIsOrderSuccess(true);
-    
-    // Keep success state open for tracking demo
-    setTimeout(() => {
-      clearCart();
-      setIsOrderSuccess(false);
-      setIsCartOpen(false);
-      setAddress(''); // Reset address
-    }, 25000); // 25 seconds to see tracking progress
+    const orderData = {
+      items: cartItems,
+      total_amount: getCartTotal(),
+      address: address,
+      status: 'Received'
+    };
+
+    try {
+      if (supabase) {
+        // REAL BACKEND: Save to Supabase
+        const { error } = await supabase
+          .from('orders')
+          .insert([orderData]);
+        
+        if (error) throw error;
+      } else {
+        // MOCK BACKEND: Simulate delay
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        
+        // Save to local history for guest view
+        const history = JSON.parse(localStorage.getItem('mocha_order_history') || '[]');
+        const newOrder = { 
+          id: `MOCK-${Math.random().toString(36).substr(2, 9)}`,
+          created_at: new Date().toISOString(),
+          ...orderData 
+        };
+        localStorage.setItem('mocha_order_history', JSON.stringify([newOrder, ...history]));
+        
+        console.log('Mock Order saved to local history:', newOrder);
+      }
+
+      setIsSubmitting(false);
+      setIsOrderSuccess(true);
+      
+      // Keep success state open for tracking demo
+      setTimeout(() => {
+        clearCart();
+        setIsOrderSuccess(false);
+        setIsCartOpen(false);
+        setAddress('');
+      }, 25000);
+
+    } catch (error) {
+      console.error('Order failed:', error.message);
+      alert('Failed to place order. Please check your connection.');
+      setIsSubmitting(false);
+    }
   };
 
   if (!isCartOpen) return null;

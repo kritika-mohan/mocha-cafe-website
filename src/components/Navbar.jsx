@@ -15,6 +15,7 @@ const Navbar = () => {
     { name: 'Home', path: '/' },
     { name: 'Menu', path: '/menu' },
     { name: 'About Us', path: '/about' },
+    { name: 'My Orders', path: '/profile' },
   ];
 
   const cartCount = getCartCount();

@@ -6,6 +6,8 @@ import Home from './pages/Home';
 import Menu from './pages/Menu';
 import About from './pages/About';
 import SignIn from './pages/SignIn';
+import Profile from './pages/Profile';
+import AdminDashboard from './pages/AdminDashboard';
 import CartSidebar from './components/CartSidebar';
 import { CartProvider } from './context/CartContext';
 
@@ -30,6 +32,8 @@ function App() {
                 <Route path="/menu" element={<Menu />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/signin" element={<SignIn />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/admin" element={<AdminDashboard />} />
                 <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>
             </main>
