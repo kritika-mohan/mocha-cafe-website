@@ -60,12 +60,35 @@
 }
 
 @media (max-width: 768px) {
+  .menu-header {
+    padding: 4rem 0 2rem;
+    margin-bottom: 2rem;
+  }
+
   .menu-tabs {
     gap: 0.5rem;
+    padding: 0 1rem;
   }
   
   .menu-tab {
-    padding: 0.6rem 1rem;
-    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    flex: 1 1 auto;
+  }
+
+  .menu-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-header {
+    padding: 3rem 0 1.5rem;
+  }
+
+  .menu-tab {
+    font-size: 0.7rem;
+    padding: 0.4rem 0.8rem;
   }
 }

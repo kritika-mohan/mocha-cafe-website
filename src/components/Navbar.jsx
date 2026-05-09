@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
-import { useContext } from 'react';
-import { ShoppingBag } from 'lucide-react';
+import { useState, useContext } from 'react';
+import { ShoppingBag, Menu, X } from 'lucide-react';
 import { AuthContext } from '../App';
 import { CartContext } from '../context/CartContext';
 import StoreStatus from './StoreStatus';
@@ -10,6 +10,10 @@ const Navbar = () => {
   const location = useLocation();
   const { isAuthenticated, logout } = useContext(AuthContext);
   const { getCartCount, toggleCart } = useContext(CartContext);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const closeMenu = () => setIsMenuOpen(false);
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -27,12 +31,13 @@ const Navbar = () => {
           <Link to="/" className="navbar-brand">Mocha·Café</Link>
           <StoreStatus />
         </div>
-        <div className="navbar-links">
+        <div className={`navbar-links ${isMenuOpen ? 'mobile-open' : ''}`}>
           {navLinks.map((link) => (
             <Link 
               key={link.name} 
               to={link.path} 
               className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
+              onClick={closeMenu}
             >
               {link.name}
             </Link>
@@ -40,17 +45,21 @@ const Navbar = () => {
           
           <div className="navbar-actions">
             {isAuthenticated ? (
-              <button onClick={logout} className="nav-btn">Sign Out</button>
+              <button onClick={() => { logout(); closeMenu(); }} className="nav-btn">Sign Out</button>
             ) : (
-              <Link to="/signin" className="nav-btn">Sign In</Link>
+              <Link to="/signin" className="nav-btn" onClick={closeMenu}>Sign In</Link>
             )}
             
-            <button className="cart-toggle-btn" onClick={toggleCart}>
+            <button className="cart-toggle-btn" onClick={() => { toggleCart(); closeMenu(); }}>
               <ShoppingBag size={20} />
               {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
             </button>
           </div>
         </div>
+
+        <button className="mobile-menu-btn" onClick={toggleMenu}>
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
     </nav>
   );
